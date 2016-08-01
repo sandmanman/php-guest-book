@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version: 5.5.38)
-# Date: 2016-08-01 17:27:32
+# Date: 2016-08-01 18:00:38
 # Generator: MySQL-Front 5.3  (Build 4.120)
 
 /*!40101 SET NAMES utf8 */;
@@ -47,4 +47,5 @@ CREATE TABLE `user` (
 #
 
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'sandman','89a26cb42e040afc6e74da22a3e1cfe2',1470045525,9);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
