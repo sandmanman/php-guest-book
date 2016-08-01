@@ -19,6 +19,6 @@ if($insert_status) {
 	//header('location:index.php');
 } else{
 	echo '抱歉，留言失败！';
-	echo '<a href='.'index.php>'.'首页</a>';	
+	echo '<a href='.'index.php>'.'首页</a>';
 }
 ?>

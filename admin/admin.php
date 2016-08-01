@@ -1,6 +1,6 @@
 <?php
 /**
-* set title 
+* set title
 */
 //is admin login?
 session_start();
@@ -36,7 +36,7 @@ while($temp = mysql_fetch_array($sql_page_result)) {
 }
 DB::close();
 
-//循环输出数据库中满足条件id留言内容
+// 循环输出数据库中满足条件id留言内容
 foreach($sql_page_array as $key => $value) {
 	echo '<br /><div>';
 	echo '<input type="hidden" value="' . $value['id'] . '" />';
@@ -54,7 +54,7 @@ foreach($sql_page_array as $key => $value) {
 	echo '<input type="button" name="delete" value="delete"/></div>';
 	echo '<hr />';
 }
-	
+
 echo '共 '.$gb_count.'&nbsp;&nbsp;条留言  ';
 if ($pagenum > 1) {
 	for($i = 1; $i <= $pagenum; $i++) {

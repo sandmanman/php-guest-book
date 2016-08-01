@@ -1,6 +1,6 @@
 <?php
 /**
-* set title 
+* set title
 */
 $title = '实验楼之PHP留言本';
 
@@ -32,7 +32,7 @@ while($temp = mysql_fetch_array($sql_page_result)) {
 }
 DB::close();
 
-//循环输出数据库中满足条件id留言内容
+// 循环输出数据库中满足条件id留言内容
 foreach($sql_page_array as $key => $value){
 	echo '<br />';
 	echo '留言者：'. $value['nickname'].'|';
