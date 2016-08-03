@@ -1,3 +1,29 @@
 <?php
     // 发布留言
+
+    require_once 'config.php';
+    require_once 'mysql.class.php';
+
+    $dbhelper = new DBHelper(); // 实例化DBHelper
+
+    $nickname = $_POST['nickname'];
+    $email = $_POST['email'];
+    $content = $_POST['gb_content'];
+    $createtime = time();
+
+    if ( !(empty($nickname) && empty($content)) ) {
+
+        // 查询留言表gb_guestbook数据语句
+        $sql_gb = 'INSERT INTO '.GB_TABLE_NAME.'(nickname,email,content,createtime) VALUES('."'{$nickname}', '{$email}', '{$content}', {$createtime})";
+        $array_gb = $dbhelper -> execute_dql($sql_gb);
+
+        $dbhelper -> close_dbc();
+
+        header("Location: index.php");
+        exit;
+
+    } else {
+        echo '不可以空着';
+    }
+
 ?>
