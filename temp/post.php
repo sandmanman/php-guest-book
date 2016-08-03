@@ -8,7 +8,7 @@ $content = DB::cleanSql($_POST['content']);
 $email = DB::cleanSql($_POST['email']);
 $create_time = time();
 
-$sql_insert = 'insert into ' . GB_TABLE_NAME . '(nickname, content, createtime, email) values( ' . "'{$author}', '{$content}', {$create_time}, '{$email}')";
+$sql_insert = 'insert into '.GB_TABLE_NAME.'(nickname, content, createtime, email) values( ' . "'{$author}', '{$content}', {$create_time}, '{$email}')";
 
 DB::connect();
 $insert_status = mysql_query($sql_insert);
