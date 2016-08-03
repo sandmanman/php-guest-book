@@ -6,10 +6,10 @@
 
     class DBHelper{
         private $mysqli;
-        private static $host='localhost';
-        private static $user='root';
-        private static $pwd='root';
-        private static $dbname='guestbook';
+        private static $host= DB_HOST;
+        private static $user= DB_USER;
+        private static $pwd= DB_PWD;
+        private static $dbname = DB_NAME;
 
         // 通过构造方法进行初始化操作
         public function __construct(){
@@ -53,10 +53,4 @@
         }
     }
 
-
-    // require_once('DBHelper.class.php');
-    // $dbhelper=new DBHelper();
-    // $sql='select id,name,age from user';
-    // $users=$dbhelper->execute_dml($sql);
-    // if(!empty($users)){
 ?>
