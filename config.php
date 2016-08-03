@@ -3,7 +3,7 @@
     // 配置
     define( 'DEBUG', true );
 
-    define( 'DB_HOST', '127.0.0.1' ); // 服务器地址
+    define( 'DB_HOST', 'localhost' ); // 服务器地址
     define( 'DB_USER', 'root' ); // 数据库用户名
     define( 'DB_PWD', 'root' ); // 数据库密码
     define( 'DB_NAME', 'guestbook' ); // 数据库名
