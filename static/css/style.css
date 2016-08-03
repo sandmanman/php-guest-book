@@ -3815,7 +3815,7 @@ table.focus-on tbody tr.focused td {
 }
 /* Login- register pages */
 .login-register {
-  background: url(../../plugins/images/login-register.jpg) no-repeat center center / cover !important;
+  background: url(../img/login-register.jpg) no-repeat center center / cover !important;
   height: 100%;
   position: fixed;
 }
@@ -8264,7 +8264,7 @@ ul.list-icons li i {
 }
 /*
  Use the following CSS code if you want to have a class per icon.
- Instead of a list of all class selectors, you can use the generic [class*="icon-"] selector, but it's slower: 
+ Instead of a list of all class selectors, you can use the generic [class*="icon-"] selector, but it's slower:
 */
 .icon-user,
 .icon-people,

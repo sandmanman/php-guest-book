@@ -3,7 +3,7 @@
         <div class="navbar-header">
             <ul class="nav navbar-top-links navbar-right pull-right">
                 <li>
-                    <a href="admin/admin.php">管理</a>
+                    <a href="admin/index.html">管理</a>
                 </li>
             </ul>
         </div>
