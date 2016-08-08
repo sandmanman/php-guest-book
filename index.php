@@ -2,8 +2,7 @@
 
     // 分页展示最新留言，及提交留言的表单
 
-    require_once 'config.php';
-    require_once 'mysql.class.php';
+    require_once 'main.php';
 
     $dbhelper = new DBHelper(); // 实例化DBHelper
 

@@ -1,8 +1,7 @@
 <?php
     // 发布留言
 
-    require_once 'config.php';
-    require_once 'mysql.class.php';
+    require_once 'main.php';
 
     $dbhelper = new DBHelper(); // 实例化DBHelper
 
