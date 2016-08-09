@@ -1,35 +1,29 @@
 <?php
 
     // 管理员登录
+    
+    session_start();
 
     require_once '../main.php';
 
-    $dbhelper = new DBHelper(); // 实例化DBHelper
+    $dbhelper = new DBHelper();
 
     $username = $_POST['username'];
-    $password = $_POST['password'];
-
-
+    $password = md5($_POST['password']);
 
     // 查询密码及用户名
-    $sql_login = 'SELECT password FROM '.ADMIN_TABLE_NAME.' WHERE level=1 AND nickname='."'{$username}'";
+    $sql_login = "SELECT * FROM ".ADMIN_TABLE_NAME." WHERE nickname='{$username}' AND password='{$password}' limit 1";
     $row = $dbhelper -> execute_dml($sql_login);
     $dbhelper -> close_dbc();
 
-    var_dump($row);
+    //var_dump($row);
 
-    if ( empty($username) && empty($password) ) {
-        echo '用户名或密码错误';
-    }
-
-    if ( md5($password) === $row[0]['password'] ) {
-        //echo '登录成功';
-        session_start();
-        $_SESSION['login'] = true;
-        header("location: admin.php");
-    } else {
-        //echo '用户名或密码错误';
+    if ( !$row ) {
         header("location: index.html");
+        //exit('用户名或密码错误');
+    } else {
+        $_SESSION['uid'] = $row[0]['uid'];
+        header("location: admin.php");
     }
 
 ?>

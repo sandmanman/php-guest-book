@@ -4,7 +4,7 @@
 
     require_once '../main.php';
 
-    $dbhelper = new DBHelper(); // 实例化DBHelper
+    $dbhelper = new DBHelper();
 
     // 查询留言表gb_guestbook数据语句
     $sql_gb = 'SELECT nickname,content,createtime From '.GB_TABLE_NAME.' ORDER BY createtime DESC';
