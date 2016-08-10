@@ -1,16 +1,25 @@
 <?php
 
+    session_start();
+
     // 分页展示最新留言，及提交留言的表单
 
     require_once '../main.php';
 
     $dbhelper = new DBHelper();
 
+    // 判断是否登录
+    if (!$_SESSION['uid']) {
+        header("location: index.html");
+        exit;
+    }
+
     // 查询留言表gb_guestbook数据语句
     $sql_gb = 'SELECT nickname,content,createtime From '.GB_TABLE_NAME.' ORDER BY createtime DESC';
     $array_gb = $dbhelper -> execute_dml($sql_gb);
-
     $dbhelper -> close_dbc();
+
+    $array_count = count($array_gb);
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +66,7 @@
                                 <div class="comment-center">
 
                                     <!-- 循环输出 -->
-                                    <?php foreach ($array_gb as $value): ?>
+                                    <?php foreach ($array_gb as $key => $value): ?>
                                     <div class="<?php echo ( ($key + 1) == $array_count)?"comment-body b-none" : "comment-body"; ?>" style="width:100%;">
                                         <div class="mail-contnet" style="padding-left:0;">
                                              <h5><?php echo $value['nickname'] ?>：</h5>
@@ -72,22 +81,16 @@
                             </div>
 
                             <div class="white-box">
-                                <!-- 留言表单 S -->
-                                <!-- <div class="guestbook-form">
+                                <!-- 回复 S -->
+                                <div class="guestbook-form">
                                     <form id="guestbookForm" action="post.php" method="post">
                                         <div class="form-group">
-                                            <input type="text" name="nickname" class="form-control" placeholder="昵称">
+                                            <textarea name="gb_content" id="" cols="30" rows="3" class="form-control" placeholder="说点什么吧...">@痞子狗 </textarea>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="email" name="email" class="form-control" placeholder="邮箱">
-                                        </div>
-                                        <div class="form-group">
-                                            <textarea name="gb_content" id="" cols="30" rows="3" class="form-control" placeholder="说点什么吧..."></textarea>
-                                        </div>
-                                        <button type="submit" class="btn btn-info"><i class="fa fa-paper-plane"></i> 提交</button>
+                                        <button type="submit" class="btn btn-info"><i class="fa fa-paper-plane"></i> 回复</button>
                                     </form>
-                                </div> -->
-                                <!-- 留言表单 End -->
+                                </div>
+                                <!-- 回复 End -->
                             </div>
                         </div>
                     </div>
