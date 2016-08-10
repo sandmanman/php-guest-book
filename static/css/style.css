@@ -7,7 +7,7 @@
 /*Normal Color*/
 /*Border radius*/
 /*Preloader*/
-@import "spinners.css";
+
 .preloader {
   width: 100%;
   height: 100%;
@@ -49,6 +49,17 @@
   outline: none !important;
 }
 body {
+  /*This is for body gradiant*/
+  background: #73c7d2 !important;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #73c7d2 0%, #73c8cf 0%, #7ec9ce 5%, #80cacb 7%, #83cacc 7%, #8acac9 11%, #8fcdca 12%, #8fccc7 13%, #97ccc6 16%, #9fcdc2 20%, #a1cdc0 20%, #a4cdbd 24%, #a7cdbe 24%, #a7ccbb 26%, #abcdbc 26%, #adccba 29%, #afcebc 29%, #b1cdb7 31%, #b3cfb9 31%, #b5ccb8 32%, #b7cfb9 34%, #bcceb4 37%, #c2d0b6 40%, #c4d1b3 43%, #cad0b4 44%, #c8d1b2 45%, #cbd2b1 45%, #ccd1b1 47%, #ced3b3 47%, #d2d2ae 51%, #d6d3b0 51%, #d4d1ae 52%, #ddd1ab 59%, #dcd0a8 59%, #ddcea5 62%, #e0cea6 63%, #e0cda5 65%, #decba3 65%, #e2cba2 67%, #e0c79e 70%, #e2c69f 71%, #e2c59d 72%, #e1c49a 73%, #e4c49b 73%, #e4c49b 74%, #e2c299 74%, #e3c098 77%, #e2bf95 77%, #e4be97 78%, #e3be92 78%, #e3bd96 78%, #e1ba91 81%, #e3b993 82%, #e1b58e 84%, #e3b790 84%, #e1b58e 85%, #e1b590 85%, #e1b48d 86%, #e0ae89 90%, #e0ae8b 91%, #dfad8a 92%, #deac87 92%, #e0ab89 94%, #dfab86 94%, #dfab86 94%, #dfaa8a 94%, #dfaa88 95%, #deaa85 95%, #dda785 100%) !important;
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #73c7d2 0%, #73c8cf 0%, #7ec9ce 5%, #80cacb 7%, #83cacc 7%, #8acac9 11%, #8fcdca 12%, #8fccc7 13%, #97ccc6 16%, #9fcdc2 20%, #a1cdc0 20%, #a4cdbd 24%, #a7cdbe 24%, #a7ccbb 26%, #abcdbc 26%, #adccba 29%, #afcebc 29%, #b1cdb7 31%, #b3cfb9 31%, #b5ccb8 32%, #b7cfb9 34%, #bcceb4 37%, #c2d0b6 40%, #c4d1b3 43%, #cad0b4 44%, #c8d1b2 45%, #cbd2b1 45%, #ccd1b1 47%, #ced3b3 47%, #d2d2ae 51%, #d6d3b0 51%, #d4d1ae 52%, #ddd1ab 59%, #dcd0a8 59%, #ddcea5 62%, #e0cea6 63%, #e0cda5 65%, #decba3 65%, #e2cba2 67%, #e0c79e 70%, #e2c69f 71%, #e2c59d 72%, #e1c49a 73%, #e4c49b 73%, #e4c49b 74%, #e2c299 74%, #e3c098 77%, #e2bf95 77%, #e4be97 78%, #e3be92 78%, #e3bd96 78%, #e1ba91 81%, #e3b993 82%, #e1b58e 84%, #e3b790 84%, #e1b58e 85%, #e1b590 85%, #e1b48d 86%, #e0ae89 90%, #e0ae8b 91%, #dfad8a 92%, #deac87 92%, #e0ab89 94%, #dfab86 94%, #dfab86 94%, #dfaa8a 94%, #dfaa88 95%, #deaa85 95%, #dda785 100%) !important;
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #73c7d2 0%, #73c8cf 0%, #7ec9ce 5%, #80cacb 7%, #83cacc 7%, #8acac9 11%, #8fcdca 12%, #8fccc7 13%, #97ccc6 16%, #9fcdc2 20%, #a1cdc0 20%, #a4cdbd 24%, #a7cdbe 24%, #a7ccbb 26%, #abcdbc 26%, #adccba 29%, #afcebc 29%, #b1cdb7 31%, #b3cfb9 31%, #b5ccb8 32%, #b7cfb9 34%, #bcceb4 37%, #c2d0b6 40%, #c4d1b3 43%, #cad0b4 44%, #c8d1b2 45%, #cbd2b1 45%, #ccd1b1 47%, #ced3b3 47%, #d2d2ae 51%, #d6d3b0 51%, #d4d1ae 52%, #ddd1ab 59%, #dcd0a8 59%, #ddcea5 62%, #e0cea6 63%, #e0cda5 65%, #decba3 65%, #e2cba2 67%, #e0c79e 70%, #e2c69f 71%, #e2c59d 72%, #e1c49a 73%, #e4c49b 73%, #e4c49b 74%, #e2c299 74%, #e3c098 77%, #e2bf95 77%, #e4be97 78%, #e3be92 78%, #e3bd96 78%, #e1ba91 81%, #e3b993 82%, #e1b58e 84%, #e3b790 84%, #e1b58e 85%, #e1b590 85%, #e1b48d 86%, #e0ae89 90%, #e0ae8b 91%, #dfad8a 92%, #deac87 92%, #e0ab89 94%, #dfab86 94%, #dfab86 94%, #dfaa8a 94%, #dfaa88 95%, #deaa85 95%, #dda785 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#73c7d2', endColorstr='#dda785', GradientType=0) !important;
+  /* IE6-9 */
   font-family: 'Poppins', sans-serif;
   margin: 0;
   overflow-x: hidden;
@@ -840,6 +851,7 @@ pre {
 }
 #wrapper {
   width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
   box-shadow: 1px 0px 50px rgba(0, 0, 0, 0.2);
 }
@@ -856,6 +868,7 @@ pre {
   padding: 20px 30px;
   position: absolute;
   width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
   right: 0;
   background: #ffffff;
@@ -928,7 +941,7 @@ pre {
 }
 .navbar-top-links > li > a {
   color: #ffffff;
-  padding: 0 14px;
+  padding: 0 12px;
   line-height: 60px;
   min-height: 60px;
 }
@@ -1888,6 +1901,11 @@ table.dataTable thead .sorting:after {
   margin-left: 8px;
   font-size: 10px;
   cursor: pointer;
+}
+.fa-fw {
+  width: 20px!important;
+  display: inline-block !important;
+  text-align: left !important;
 }
 /*Wave Effeects*/
 .waves-effect {
@@ -3815,7 +3833,7 @@ table.focus-on tbody tr.focused td {
 }
 /* Login- register pages */
 .login-register {
-  background: url(../img/login-register.jpg) no-repeat center center / cover !important;
+  background: url(../images/login-register.jpg) no-repeat center center / cover !important;
   height: 100%;
   position: fixed;
 }
@@ -4422,6 +4440,9 @@ ul#themecolors li:first-child {
   background-color: #fec107;
   color: #ffffff;
 }
+.jq-toast-wrap.top-right {
+  right: 15%;
+}
 /*Dropzone*/
 .dropzone {
   border-style: dashed;
@@ -5004,7 +5025,7 @@ ul.list-icons li i {
 .sidebar .fa-fw {
   width: 20px;
   text-align: left;
-  display: none;
+  display: inline-block;
 }
 .sidebar .label {
   font-size: 9px;
@@ -5067,11 +5088,14 @@ ul.list-icons li i {
   .nav-second-level li {
     background: #f7fafc;
   }
-  #side-menu {
-    margin-left: 25px;
-  }
   #side-menu > li > a span.arrow {
     display: none;
+  }
+  #side-menu .fa-fw {
+    width: 100%!important;
+    display: block !important;
+    text-align: center !important;
+    margin-bottom: 5px;
   }
   .sidebar .nav-second-level li a {
     padding-left: 15px;
@@ -14389,6 +14413,110 @@ a.mytooltip {
     width: 400px;
   }
 }
+/********* Search Result Page**********/
+.search-listing {
+  padding: 0px;
+  margin: 0px;
+}
+.search-listing li {
+  list-style: none;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+}
+.search-listing li h3 {
+  margin: 0px;
+  font-size: 18px;
+}
+.search-listing li h3 a {
+  color: #03a9f3;
+}
+.search-listing li h3 a:hover {
+  text-decoration: underline;
+}
+.search-listing li a {
+  color: #00c292;
+}
+/********* Megamenu Page**********/
+.megamenu {
+  left: 0px;
+  right: 0px;
+  width: 100%;
+}
+.mega-dropdown {
+  position: static !important;
+}
+.mega-dropdown-menu {
+  padding: 20px;
+  width: 100%;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border: 0px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2) !important;
+}
+.mega-dropdown-menu > li > ul {
+  padding: 0;
+  margin: 0;
+}
+.mega-dropdown-menu > li > ul > li {
+  list-style: none;
+}
+.mega-dropdown-menu > li > ul > li > a {
+  display: block;
+  padding: 8px 0px;
+  clear: both;
+  line-height: 1.428571429;
+  color: #686868;
+  white-space: normal;
+}
+.mega-dropdown-menu > li > ul > li > a:hover,
+.mega-dropdown-menu > li > ul > li > a:focus {
+  text-decoration: none;
+  color: #ff6849;
+}
+.mega-dropdown-menu .dropdown-header {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 0;
+  margin-top: 12px;
+}
+.mega-dropdown-menu li.demo-box a {
+  color: #ffffff;
+  display: block;
+}
+.mega-dropdown-menu li.demo-box a:hover {
+  opacity: 0.8;
+}
+/*Data tables*/
+button.dt-button,
+div.dt-button,
+a.dt-button {
+  background: #03a9f3;
+  color: #ffffff;
+  border-color: #03a9f3;
+}
+button.dt-button:hover,
+div.dt-button:hover,
+a.dt-button:hover {
+  background: #03a9f3;
+}
+button.dt-button:hover:not(.disabled),
+div.dt-button:hover:not(.disabled),
+a.dt-button:hover:not(.disabled) {
+  background: #f7fafc;
+  color: #2b2b2b;
+  border-color: rgba(120, 130, 140, 0.13);
+}
+.dataTables_filter input {
+  border: 1px solid rgba(120, 130, 140, 0.13);
+}
+table.dataTable.display tbody tr.odd > .sorting_1,
+table.dataTable.order-column.stripe tbody tr.odd > .sorting_1,
+table.dataTable.display tbody tr:hover > .sorting_1,
+table.dataTable.order-column.hover tbody tr:hover > .sorting_1,
+table.dataTable.display tbody tr.even > .sorting_1,
+table.dataTable.order-column.stripe tbody tr.even > .sorting_1 {
+  background: none;
+}
 /*For Laptop (1280px)*/
 @media (max-width: 1350px) {
   .carousel .item h3 {
@@ -14418,6 +14546,7 @@ a.mytooltip {
   }
   .fix-header .navbar-static-top {
     position: fixed;
+    max-width: 1400px;
   }
   .fix-header .sidebar {
     padding-top: 60px;
@@ -14529,6 +14658,28 @@ a.mytooltip {
   .dropdown .dropdown-tasks {
     left: -94px;
   }
+  /***** Start Update 1.5 *****/
+  .fix-header .navbar-static-top {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+  }
+  .fix-header #page-wrapper {
+    margin-top: 60px;
+  }
+  .fix-header .sidebar {
+    position: fixed;
+    height: 350px;
+    top: 60px;
+    z-index: 100;
+    overflow: auto!important;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+  }
+  .mega-dropdown-menu {
+    height: 340px;
+    overflow: auto;
+  }
+  /***** Close Update 1.5 *****/
 }
 @media (max-width: 480px) {
   .vtabs .tabs-vertical {

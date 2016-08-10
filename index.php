@@ -17,7 +17,7 @@
 ?>
 
 <!DOCTYPE html>
-<html style="background:#edf1f5;">
+<html>
     <head>
         <meta charset="utf-8">
         <title>留言</title>

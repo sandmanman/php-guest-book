@@ -23,7 +23,7 @@
 ?>
 
 <!DOCTYPE html>
-<html style="background:#edf1f5;">
+<html>
     <head>
         <meta charset="utf-8">
         <title>留言管理</title>
@@ -69,9 +69,12 @@
                                     <?php foreach ($array_gb as $key => $value): ?>
                                     <div class="<?php echo ( ($key + 1) == $array_count)?"comment-body b-none" : "comment-body"; ?>" style="width:100%;">
                                         <div class="mail-contnet" style="padding-left:0;">
-                                             <h5><?php echo $value['nickname'] ?>：</h5>
+                                             <h5><?php echo $value['nickname'] ?></h5>
                                              <p class="mail-desc" style="height:auto;"><?php echo $value['content'] ?></p>
-                                             <a href="javacript:void(0)" class="pull-right">回复</a>
+
+                                             <a href="javacript:void(0)" class="pull-right">删除</a>
+                                             <a href="javacript:void(0)" class="pull-right" style="margin-right:20px;">回复</a>
+
                                              <span class="time"><?php echo date( 'm-d H:i', $value['createtime'] ) ?></span>
                                         </div>
                                     </div>
