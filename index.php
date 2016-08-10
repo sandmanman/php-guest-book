@@ -13,6 +13,7 @@
     $dbhelper -> close_dbc();
 
     $array_count = count($array_gb);
+
 ?>
 
 <!DOCTYPE html>

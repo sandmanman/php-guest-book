@@ -1,7 +1,7 @@
 <?php
 
     // 管理员登录
-    
+
     session_start();
 
     require_once '../main.php';
