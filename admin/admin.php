@@ -23,8 +23,9 @@
         $dbhelper -> execute_dql($sql_del);
         $dbhelper -> close_dbc();
 
-        header("location: admin.php");
+        header("location: admin.php?action=deleted");
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -34,10 +35,12 @@
         <title>留言管理</title>
         <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
+        
+        <link rel="stylesheet" href="../static/components/sweetalert/sweetalert.css">
+        <link rel="stylesheet" href="../static/components/toast/jquery.toast.css">
+
         <link rel="stylesheet" href="../static/css/style.css">
         <link rel="stylesheet" href="../static/css/megna.css">
-        <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-        <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     </head>
     <body>
         <div class="wrapper" id="wrapper">
@@ -76,13 +79,14 @@
                                         <?php foreach ($array_gb as $key => $value): ?>
                                         <div class="<?php echo ( ($key + 1) == $array_count)?"comment-body b-none" : "comment-body"; ?>" style="width:100%;">
                                             <div class="mail-contnet" style="padding-left:0;">
-                                                 <h5><?php echo $value['nickname'] ?></h5>
-                                                 <p class="mail-desc" style="height:auto;"><?php echo $value['content'] ?></p>
+                                                <h5><?php echo $value['nickname'] ?></h5>
+                                                <p class="mail-desc" style="height:auto;"><?php echo $value['content'] ?></p>
 
-                                                 <a href="<?php echo 'admin.php?delComment='.$value['cid'] ?>" class="pull-right">删除</a>
-                                                 <a href="javacript:void(0)" class="pull-right" style="margin-right:20px;">回复</a>
+                                                <!-- <a href="<?php echo 'admin.php?delComment='.$value['cid'] ?>" class="pull-right">删除</a> -->
+                                                <a href="javascript:void(0);" class="pull-right js-del" data-cid="<?php echo $value['cid'] ?>">删除</a>
+                                                <a href="javacript:void(0)" class="pull-right" style="margin-right:20px;">回复</a>
 
-                                                 <span class="time"><?php echo $value['create_time']; ?></span>
+                                                <span class="time"><?php echo $value['create_time']; ?></span>
                                             </div>
                                         </div>
                                         <?php endforeach; ?>
@@ -109,5 +113,46 @@
                 </div>
             </div>
         </div>
+
+        <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+        <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="../static/components/sweetalert/sweetalert.min.js"></script>
+        <script src="../static/components/toast/jquery.toast.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                $('.js-del').each(function() {
+                    var cid = $(this).data('cid');
+                    $(this).click(function() {
+                        delComment(cid);
+                    });
+                });
+                function delComment(cid) {
+                    swal({
+                        title: '确认删除?',
+                        text: '删除后不可恢复!',
+                        type: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#d9534f',
+                        cancelButtonColor: '#03a9f3',
+                        cancelButtonText: '取消',
+                        confirmButtonText: '删除',
+                        closeOnConfirm: false
+                    }, function(isConfirm){
+                        if (isConfirm) {
+                            var url = 'admin.php?delComment=' + cid;
+                            window.location.href = url;
+                            //console.log('ddd');
+                        }
+                    });
+                }
+            })
+        </script>
+
+        <?php
+            // 删除执行成功
+            if ( isset($_GET['action']) && $_GET['action']='deleted' ) {
+                echo "<script>$.toast({heading: '删除成功',position: 'top-right',loaderBg:'#ff6849',icon: 'success',hideAfter: 2600});</script>";
+            }
+        ?>
     </body>
 </html>
