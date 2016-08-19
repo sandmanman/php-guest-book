@@ -23,7 +23,7 @@
             $arr = array();
             $result = $this -> mysqli -> query($sql) or die($this -> mysqli -> error);
             if($result){
-                while( $row= $result -> fetch_assoc() ) {
+                while( $row= $result -> fetch_array() ) {
                     // 将查询结果封装到一个数组中，返回给方法调用处
                     $arr[]=$row;
                 }

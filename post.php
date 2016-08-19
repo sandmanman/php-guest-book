@@ -13,7 +13,7 @@
     if ( !(empty($nickname) && empty($content)) ) {
 
         // 查询留言表gb_guestbook数据语句
-        $sql_gb = "INSERT INTO ".GB_TABLE_NAME."(nickname,email,content,createtime) VALUES("."'{$nickname}', '{$email}', '{$content}', {$createtime})";
+        $sql_gb = "INSERT INTO ".GB_TABLE_NAME."(nickname,email,content,create_time) VALUES("."'{$nickname}', '{$email}', '{$content}', {$createtime})";
         $array_gb = $dbhelper -> execute_dql($sql_gb);
 
         $dbhelper -> close_dbc();

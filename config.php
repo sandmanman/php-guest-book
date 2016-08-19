@@ -1,7 +1,7 @@
 <?php
 
+    session_start();
 
-    define( 'DEBUG', true );
 
     // 配置
     define( 'DB_HOST', 'localhost' ); // 服务器地址
@@ -12,10 +12,6 @@
     define( 'GB_TABLE_NAME', 'gb_guestbook' ); // 留言表 表名
     define( 'ADMIN_TABLE_NAME', 'gb_user' ); // 用户表 表名
 
-    // 调试用，类似与某些框架的几种模式，生产环境，产品环境
-    if ( DEBUG ) {
-        ini_set('display_errors', 1);
-        error_reporting(E_ALL); // 报告所有错误
-        //error_reporting(0); // 禁用报告错误
-    }
+    date_default_timezone_set('Asia/Shanghai');
+
 ?>
