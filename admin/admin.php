@@ -10,21 +10,12 @@
         exit;
     }
 
-    // 查询留言表gb_guestbook数据语句
+
     $sql_gb = 'SELECT * From '.GB_TABLE_NAME.' ORDER BY create_time';
     $array_gb = $dbhelper -> execute_dml($sql_gb);
 
     $array_count = count($array_gb);
-
-    // 删除
-    if ( isset($_GET['delComment']) ) {
-        $cid = $_GET['delComment'];
-        $sql_del = "DELETE FROM ".GB_TABLE_NAME." WHERE cid='{$cid}'";
-        $dbhelper -> execute_dql($sql_del);
-        $dbhelper -> close_dbc();
-
-        header("location: admin.php?action=deleted");
-    }
+    
 
 ?>
 
@@ -71,7 +62,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="panel panel-default">
+                            <div class="panel panel-default comments-list-panel">
                                 <div class="panel-body">
                                     <div class="comment-center">
 
@@ -79,10 +70,9 @@
                                         <?php foreach ($array_gb as $key => $value): ?>
                                         <div class="<?php echo ( ($key + 1) == $array_count)?"comment-body b-none" : "comment-body"; ?>" style="width:100%;">
                                             <div class="mail-contnet" style="padding-left:0;">
-                                                <h5><?php echo $value['nickname'] ?></h5>
+                                                <h5><?php echo $key+1 . $value['nickname'] ?></h5>
                                                 <p class="mail-desc" style="height:auto;"><?php echo $value['content'] ?></p>
 
-                                                <!-- <a href="<?php echo 'admin.php?delComment='.$value['cid'] ?>" class="pull-right">删除</a> -->
                                                 <a href="javascript:void(0);" class="pull-right js-del" data-cid="<?php echo $value['cid'] ?>">删除</a>
                                                 <a href="javacript:void(0)" class="pull-right" style="margin-right:20px;">回复</a>
 
@@ -118,6 +108,7 @@
         <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="../static/components/sweetalert/sweetalert.min.js"></script>
         <script src="../static/components/toast/jquery.toast.js"></script>
+        <script src="../static/components/jquery-loading-overlay/loadingoverlay.min.js"></script>
         <script type="text/javascript">
             $(function(){
                 $('.js-del').each(function() {
@@ -133,26 +124,44 @@
                         type: 'warning',
                         showCancelButton: true,
                         confirmButtonColor: '#d9534f',
-                        cancelButtonColor: '#03a9f3',
                         cancelButtonText: '取消',
                         confirmButtonText: '删除',
-                        closeOnConfirm: false
+                        closeOnConfirm: false,
+                        showLoaderOnConfirm: true
                     }, function(isConfirm){
                         if (isConfirm) {
-                            var url = 'admin.php?delComment=' + cid;
-                            window.location.href = url;
-                            //console.log('ddd');
+                            $.ajax({
+                                url: 'del.php?delComment='+cid,
+                                type: 'POST',
+                                dataType: 'json',
+                                data: {'cid':cid}
+                            })
+                            .done(function(data) {
+                                if ( data == 1 ) {
+                                    swal({
+                                        title: '删除成功!',
+                                        type: 'success',
+                                        showConfirmButton: true,
+                                        confirmButtonText: '确定'
+                                    }, function(isConfirm) {
+                                        if (isConfirm) {
+                                            $.LoadingOverlay('show', {
+                                                image: '',
+                                                size: '30%',
+                                                fontawesome : "fa fa-spin fa-cog"
+                                            });
+                                            window.location.href = 'admin.php';
+                                        }
+                                    });
+                                }                           
+                            })
+                            .fail(function(data) {
+                                console.log("error");
+                            });
                         }
                     });
                 }
-            })
+            });
         </script>
-
-        <?php
-            // 删除执行成功
-            if ( isset($_GET['action']) && $_GET['action']='deleted' ) {
-                echo "<script>$.toast({heading: '删除成功',position: 'top-right',loaderBg:'#ff6849',icon: 'success',hideAfter: 2600});</script>";
-            }
-        ?>
     </body>
 </html>

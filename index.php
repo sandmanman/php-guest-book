@@ -2,7 +2,7 @@
 
     require_once 'main.php';
 
-    // 查询留言表gb_guestbook数据语句
+    
     $sql_gb = 'SELECT nickname,content,create_time From '.GB_TABLE_NAME.' ORDER BY create_time';
     $array_gb = $dbhelper -> execute_dml($sql_gb);
 

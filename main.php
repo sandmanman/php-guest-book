@@ -6,6 +6,7 @@
     include APP_PATH.'/config.php';
     include APP_PATH.'/mysql.class.php';
 
-    $dbhelper = new DBHelper(); // 实例化DBHelper
+    // 实例DBHelper
+    $dbhelper = new DBHelper(); 
 
 ?>

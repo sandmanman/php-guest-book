@@ -1,9 +1,10 @@
 <?php
-    // 发布留言
+
+    /*
+        发表留言
+     */
 
     require_once 'main.php';
-
-    $dbhelper = new DBHelper(); // 实例化DBHelper
 
     $nickname = $_POST['nickname'];
     $email = $_POST['email'];
