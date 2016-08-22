@@ -71,13 +71,22 @@
                                             <h5><?php echo $key+1 . $value['nickname'] ?></h5>
                                             <p class="mail-desc" style="height:auto;"><?php echo $value['content'] ?></p>
 
-                                            <div class="pull-left">
-                                                <a href="javacript:void(0)" class="btn btn-default btn-outline btn-sm js-reply">回复</a>
-                                                &nbsp;
-                                                <a href="javascript:void(0);" class="btn btn-default btn-outline btn-sm js-del">删除</a>
+                                            <div class="clearfix">
+                                                <div class="pull-left">
+                                                    <a href="#reply-<?php echo $value['cid'] ?>" class="btn btn-default btn-outline btn-sm js-reply" data-toggle="collapse">回复</a>
+                                                    &nbsp;
+                                                    <a href="javascript:void(0);" class="btn btn-default btn-outline btn-sm js-del">删除</a>
+                                                </div>
+
+                                                <time class="time pull-right"><?php echo $value['create_time']; ?></time>
                                             </div>
 
-                                            <time class="time pull-right"><?php echo $value['create_time']; ?></time>
+                                            <!-- 回复 S -->
+                                            <div class="panel-collapse collapse m-t-10" id="reply-<?php echo $value['cid'] ?>">
+                                                
+                                            </div>
+                                            <!-- 回复 End -->
+
                                         </div>
                                     </div>
                                     <?php endforeach; ?>
@@ -86,18 +95,6 @@
                                 
                             </div>
 
-                            <div class="white-box hidden">
-                                <!-- 回复 S -->
-                                <div class="guestbook-form">
-                                    <form id="replyForm" action="" method="post">
-                                        <div class="form-group">
-                                            <textarea name="gb_content" id="" cols="30" rows="3" class="form-control" placeholder="说点什么吧...">@痞子狗 </textarea>
-                                        </div>
-                                        <button type="submit" class="btn btn-info"><i class="fa fa-paper-plane"></i> 回复</button>
-                                    </form>
-                                </div>
-                                <!-- 回复 End -->
-                            </div>
                         </div>
                     </div>
 

@@ -7,12 +7,16 @@
 	"use strict";
 
 	$(function(){
+
+		// 删除操作
         $('.js-del').each(function() {
-            var cid = $(this).data('cid');
+            var cid = $(this).closest('.mail-contnet').data('cid');
             $(this).click(function() {
                 delComment(cid);
             });
+
         });
+
         function delComment(cid) {
             swal({
                 title: '确认删除?',
@@ -43,8 +47,7 @@
                                 if (isConfirm) {
                                     $.LoadingOverlay('show', {
                                         image: '',
-                                        size: '30%',
-                                        fontawesome : "fa fa-spin fa-cog"
+                                        fontawesome : 'fa fa-spin fa-cog'
                                     });
                                     window.location.href = 'admin.php';
                                 }
@@ -56,7 +59,30 @@
                     });
                 }
             });
-        }
+        } // End 删除操作
+
+
+        // 回复操作
+        $(document).on(function(){
+
+        	$('.js-reply').each(function() {
+	        	var cid = $(this).closest('.mail-contnet').data('cid');
+	        	var reply_id = $(this).attr('href');
+
+	        	// 输入内容需要过滤HTML等
+	        	var content = $(reply_id).find('textarea').val(); 
+
+	        	$(this).click(function() {
+	        	
+	        		$(reply_id).load('reply.html');
+	        		console.log(content);
+	        	});
+	        });
+
+        });
+        
+
+
     });
-    
+
 })();
