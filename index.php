@@ -36,51 +36,51 @@
                             <h4 class="page-title">留言</h4>
                         </div>
                     </div>
-                </div>
 
-                <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="panel panel-default">
-                                <!-- <h3 class="panel-heading">最新留言</h3> -->
-                                <div class="panel-body">
-                                    <div class="comment-center">
 
-                                        <!-- 循环输出 -->
-                                        <?php foreach ($array_gb as $key => $value): ?>
-                                        <div class="<?php echo ( ($key + 1) == $array_count)?"comment-body b-none" : "comment-body"; ?>" style="width:100%;">
-                                            <div class="mail-contnet" style="padding-left:0;">
-                                                 <h5><?php echo $value['nickname'] ?>：</h5>
-                                                 <p class="mail-desc" style="height:auto;"><?php echo $value['content'] ?></p>
-                                                 <span class="time"><?php echo $value['create_time']; ?></span>
-                                            </div>
+                            <div class="white-box">
+                                
+                                <!-- 留言表单 S -->
+                                <div class="guestbook-form">
+                                    <form id="guestbookForm" action="post.php" method="post">
+                                        <div class="form-group">
+                                            <input type="text" name="nickname" class="form-control" placeholder="昵称">
                                         </div>
-                                        <?php endforeach; ?>
-
-                                    </div>
+                                        <div class="form-group">
+                                            <input type="email" name="email" class="form-control" placeholder="邮箱">
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea name="gb_content" id="" cols="30" rows="3" class="form-control" placeholder="说点什么吧..."></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-info"><i class="fa fa-paper-plane"></i> 提交</button>
+                                    </form>
                                 </div>
+                                <!-- 留言表单 End -->
+                                
                             </div>
 
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <!-- 留言表单 S -->
-                                    <div class="guestbook-form">
-                                        <form id="guestbookForm" action="post.php" method="post">
-                                            <div class="form-group">
-                                                <input type="text" name="nickname" class="form-control" placeholder="昵称">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="email" name="email" class="form-control" placeholder="邮箱">
-                                            </div>
-                                            <div class="form-group">
-                                                <textarea name="gb_content" id="" cols="30" rows="3" class="form-control" placeholder="说点什么吧..."></textarea>
-                                            </div>
-                                            <button type="submit" class="btn btn-info"><i class="fa fa-paper-plane"></i> 提交</button>
-                                        </form>
+                            <div class="white-box">
+                                
+                                <div class="comment-center">
+
+                                    <!-- 循环输出 -->
+                                    <?php foreach ($array_gb as $key => $value): ?>
+                                    <div class="<?php echo ( ($key + 1) == $array_count)?"comment-body b-none" : "comment-body"; ?>" style="width:100%;">
+                                        <div class="mail-contnet" style="padding-left:0;">
+                                             <h5><?php echo $value['nickname'] ?>：</h5>
+                                             <p class="mail-desc" style="height:auto;"><?php echo $value['content'] ?></p>
+                                             <time class="time pull-right"><?php echo $value['create_time']; ?></time>
+                                        </div>
                                     </div>
-                                    <!-- 留言表单 End -->
+                                    <?php endforeach; ?>
+
                                 </div>
+                                
                             </div>
+
+                            
                         </div>
                     </div>
 

@@ -53,36 +53,37 @@
             <div id="page-wrapper">
                 <div class="container-fluid">
                     <div class="row bg-title">
-                        <div class="col-lg-12">
+                        <div class="col-xs-12">
                             <h4 class="page-title">留言管理</h4>
                         </div>
                     </div>
-                </div>
 
-                <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <div class="panel panel-default comments-list-panel">
-                                <div class="panel-body">
-                                    <div class="comment-center">
+                        <div class="col-xs-12">
+                            <div class="white-box comments-list-box">
+                                
+                                <div class="comment-center">
 
-                                        <!-- 循环输出 -->
-                                        <?php foreach ($array_gb as $key => $value): ?>
-                                        <div class="<?php echo ( ($key + 1) == $array_count)?"comment-body b-none" : "comment-body"; ?>" style="width:100%;">
-                                            <div class="mail-contnet" style="padding-left:0;">
-                                                <h5><?php echo $key+1 . $value['nickname'] ?></h5>
-                                                <p class="mail-desc" style="height:auto;"><?php echo $value['content'] ?></p>
+                                    <!-- 循环输出 -->
+                                    <?php foreach ($array_gb as $key => $value): ?>
+                                    <div class="<?php echo ( ($key + 1) == $array_count)?"comment-body b-none" : "comment-body"; ?>" style="width:100%;">
+                                        <div class="mail-contnet" style="padding-left:0;" data-cid="<?php echo $value['cid'] ?>">
+                                            <h5><?php echo $key+1 . $value['nickname'] ?></h5>
+                                            <p class="mail-desc" style="height:auto;"><?php echo $value['content'] ?></p>
 
-                                                <a href="javascript:void(0);" class="pull-right js-del" data-cid="<?php echo $value['cid'] ?>">删除</a>
-                                                <a href="javacript:void(0)" class="pull-right" style="margin-right:20px;">回复</a>
-
-                                                <span class="time"><?php echo $value['create_time']; ?></span>
+                                            <div class="pull-left">
+                                                <a href="javacript:void(0)" class="btn btn-default btn-outline btn-sm js-reply">回复</a>
+                                                &nbsp;
+                                                <a href="javascript:void(0);" class="btn btn-default btn-outline btn-sm js-del">删除</a>
                                             </div>
-                                        </div>
-                                        <?php endforeach; ?>
 
+                                            <time class="time pull-right"><?php echo $value['create_time']; ?></time>
+                                        </div>
                                     </div>
+                                    <?php endforeach; ?>
+
                                 </div>
+                                
                             </div>
 
                             <div class="white-box hidden">
@@ -109,7 +110,7 @@
         <script src="../static/components/sweetalert/sweetalert.min.js"></script>
         <script src="../static/components/toast/jquery.toast.js"></script>
         <script src="../static/components/jquery-loading-overlay/loadingoverlay.min.js"></script>
-        
+
         <script src="static/admin.js"></script>
     </body>
 </html>
