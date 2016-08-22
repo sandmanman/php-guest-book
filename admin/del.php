@@ -6,11 +6,10 @@
     
     require_once '../main.php';
 
-    
-    if ( isset($_GET['delComment']) ) {
+    if ( isset($_GET['delComment']) && $_GET['delComment'] !== 'undefined' ) {
     	$cid = $_GET['delComment'];
-    	$sql_del = "DELETE FROM ".GB_TABLE_NAME." WHERE cid='{$cid}'";
-	    $result = $dbhelper -> execute_dql($sql_del);
+    	$sql = "DELETE FROM ".GB_TABLE_NAME." WHERE cid='{$cid}'";
+	    $result = $dbhelper -> execute_dql($sql);
 
 	    if ( $result ) {
 	    	echo 1; // 删除操作成功
@@ -19,6 +18,8 @@
 	    }
 
 	    $dbhelper -> close_dbc();
+    } else {
+        echo '参数错误';
     }
     
 ?>
