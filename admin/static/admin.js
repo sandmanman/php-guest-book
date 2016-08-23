@@ -47,7 +47,7 @@
                                 if (isConfirm) {
                                     $.LoadingOverlay('show', {
                                         image: '',
-                                        fontawesome : 'fa fa-spin fa-cog'
+                                        fontawesome : 'fa fa-circle-o-notch fa-spin'
                                     });
                                     window.location.href = 'admin.php';
                                 }
@@ -63,23 +63,75 @@
 
 
         // 回复操作
-        $(document).on(function(){
+    	$('.js-reply').each(function() {
+        	var cid = $(this).closest('.mail-contnet').data('cid');
+        	var reply_id = $(this).attr('href');
 
-        	$('.js-reply').each(function() {
-	        	var cid = $(this).closest('.mail-contnet').data('cid');
-	        	var reply_id = $(this).attr('href');
+        	$(this).click(function() {
+        	
+        		$(reply_id).load('reply.html', function(){
+        			
+	        		var send_btn = $(reply_id).find('.js-send-reply');
+	        		var textarea = $(reply_id).find('textarea');
 
-	        	// 输入内容需要过滤HTML等
-	        	var content = $(reply_id).find('textarea').val(); 
+	        		textarea.focus();
 
-	        	$(this).click(function() {
-	        	
-	        		$(reply_id).load('reply.html');
-	        		console.log(content);
-	        	});
-	        });
+	        		send_btn.on('click', function(){
 
+	        			// 输入内容需要过滤html,js等特殊字符，防止存入数据发生严重错误！
+	        			var content = textarea.val();
+
+	        			send_btn.attr('disabled','disabled').html('<i class="fa fa-circle-o-notch fa-spin"></i>');
+	        			
+	        			$.ajax({
+	        				url: 'reply.php?cid=' + cid + '&content=' + content,
+	        				type: 'post',
+	        				dataType: 'json',
+	        				data: {
+	        					cid: 'cid',
+	        					content: 'content'
+	        				}
+	        			})
+	        			.done(function(data) {
+	        				if ( data == 1 ) {
+	        					console.log("success");
+	        					textarea.val('');
+	        					send_btn.removeAttr('disabled').html('回复');
+	        					$(reply_id).collapse('hide');
+
+	        					// 提示成功
+	        					$.toast({
+						            heading: '回复成功！',
+						            position: 'top-center',
+						            loaderBg:'transparent',
+						            icon: 'success',
+						            hideAfter: 3500, 
+						            stack: 6
+						        });
+	        				}
+	        			})
+	        			.fail(function(data) {
+	        				console.log("error");
+	        				// 提示失败
+        					$.toast({
+					            heading: '出了点错误！',
+					            position: 'top-center',
+					            loaderBg:'transparent',
+					            icon: 'error',
+					            hideAfter: 3500, 
+					            stack: 6
+					        });
+	        				send_btn.removeAttr('disabled').html('回复');
+	        			}); // ajax End
+	        			
+	        		});
+	        		
+        		});
+
+        		
+        	});
         });
+
         
 
 

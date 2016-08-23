@@ -5,12 +5,14 @@
     
     require_once '../main.php';
 
-    
-    if ( isset($_GET('cid')) && isset($_GET('content')) && $_GET['cid'] !== 'undefined' && $_GET['content'] !== 'undefined' ) {
-    	var $cid = $_GET('cid');
-    	var $content = $_GET('content'); // 这里需要过滤HTML
+    $cid = $_GET['cid'];
+  	$content = $_GET['content'];
+  	$content = trim($content);
+   	$content = htmlspecialchars($content);
 
-    	$sql = "UPADTE ".GB_TABLE_NAME."SET reply_content='{$content}' WHERE cid='{$cid}'";
+    if ( !empty($content && $content) && $cid!=='undefined' && $content!=='undefined' ) {
+    	
+    	$sql = "UPDATE ".GB_TABLE_NAME." SET reply_content='$content' WHERE cid='$cid'";
 	    $result = $dbhelper -> execute_dql($sql);
 
 	    if ( $result ) {

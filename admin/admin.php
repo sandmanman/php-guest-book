@@ -68,24 +68,30 @@
                                     <?php foreach ($array_gb as $key => $value): ?>
                                     <div class="<?php echo ( ($key + 1) == $array_count)?"comment-body b-none" : "comment-body"; ?>" style="width:100%;">
                                         <div class="mail-contnet" style="padding-left:0;" data-cid="<?php echo $value['cid'] ?>">
-                                            <h5><?php echo $key+1 . $value['nickname'] ?></h5>
-                                            <p class="mail-desc" style="height:auto;"><?php echo $value['content'] ?></p>
+                                            <strong><?php echo $key+1 . $value['nickname'] ?></strong>
+                                            <time class="sl-date"><?php echo $value['create_time']; ?></time>
+
+                                            <div class="mail-desc" style="height:auto;"><?php echo $value['content'] ?></div>
 
                                             <div class="clearfix">
                                                 <div class="pull-left">
-                                                    <a href="#reply-<?php echo $value['cid'] ?>" class="btn btn-default btn-outline btn-sm js-reply" data-toggle="collapse">回复</a>
+                                                    <a href="#reply-<?php echo $value['cid'] ?>" class="btn btn-default btn-outline btn-sm js-reply" data-toggle="collapse"><i class="fa fa-mail-reply"></i> 回复</a>
                                                     &nbsp;
-                                                    <a href="javascript:void(0);" class="btn btn-default btn-outline btn-sm js-del">删除</a>
+                                                    <a href="javascript:void(0);" class="btn btn-default btn-outline btn-sm js-del"><i class="fa fa-close"></i> 删除</a>
                                                 </div>
-
-                                                <time class="time pull-right"><?php echo $value['create_time']; ?></time>
                                             </div>
 
-                                            <!-- 回复 S -->
+                                            <!-- 回复表单 S -->
                                             <div class="panel-collapse collapse m-t-10" id="reply-<?php echo $value['cid'] ?>">
                                                 
                                             </div>
-                                            <!-- 回复 End -->
+                                            <!-- 回复表单 End -->
+
+                                            <!-- 回复列表 S -->
+                                            <div class="mail-contnet">
+                                                
+                                            </div>
+                                            <!-- 回复列表 End -->
 
                                         </div>
                                     </div>
