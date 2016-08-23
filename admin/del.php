@@ -6,8 +6,10 @@
     
     require_once '../main.php';
 
-    if ( isset($_GET['delComment']) && $_GET['delComment'] !== 'undefined' ) {
-    	$cid = $_GET['delComment'];
+    $cid = $_GET['delComment'];
+
+    if ( !empty($cid) && $cid!=='undefined' ) {
+    	
     	$sql = "DELETE FROM ".GB_TABLE_NAME." WHERE cid='{$cid}'";
 	    $result = $dbhelper -> execute_dql($sql);
 
