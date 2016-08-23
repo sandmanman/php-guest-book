@@ -69,9 +69,9 @@
                                     <?php foreach ($array_gb as $key => $value): ?>
                                     <div class="<?php echo ( ($key + 1) == $array_count)?"comment-body b-none" : "comment-body"; ?>" style="width:100%;">
                                         <div class="mail-contnet" style="padding-left:0;">
-                                             <h5><?php echo $value['nickname'] ?>：</h5>
-                                             <p class="mail-desc" style="height:auto;"><?php echo $value['content'] ?></p>
+                                             <strong><?php echo $value['nickname'] ?>：</strong>
                                              <time class="sl-date pull-right"><?php echo $value['create_time']; ?></time>
+                                             <div class="mail-desc" style="height:auto;"><?php echo $value['content'] ?></div>
                                         </div>
                                     </div>
                                     <?php endforeach; ?>
