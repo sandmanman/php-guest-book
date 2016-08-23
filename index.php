@@ -71,7 +71,7 @@
                                         <div class="mail-contnet" style="padding-left:0;">
                                              <h5><?php echo $value['nickname'] ?>：</h5>
                                              <p class="mail-desc" style="height:auto;"><?php echo $value['content'] ?></p>
-                                             <time class="time pull-right"><?php echo $value['create_time']; ?></time>
+                                             <time class="sl-date pull-right"><?php echo $value['create_time']; ?></time>
                                         </div>
                                     </div>
                                     <?php endforeach; ?>
