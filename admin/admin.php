@@ -10,12 +10,16 @@
         exit;
     }
 
-
-    $sql_gb = 'SELECT * From '.GB_TABLE_NAME.' ORDER BY create_time';
+    // 留言
+    $sql_gb = 'SELECT * From '.GB_TABLE_NAME.' ORDER BY create_time DESC';
     $array_gb = $dbhelper -> execute_dml($sql_gb);
 
     $array_count = count($array_gb);
-    
+
+    // 回复
+    // $sql_reply = 'SELECT * From '.REPLY_TABLE_NAME.' ORDER BY reply_time DESC';
+    // $array_reply = $dbhelper -> execute_dml($sql_reply);
+    // $array_count_reply = count($array_reply);
 
 ?>
 
@@ -23,7 +27,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>留言管理</title>
+        <title>管理留言</title>
         <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
         
@@ -39,11 +43,11 @@
             <header>
                 <nav class="navbar navbar-default navbar-static-top m-b-0">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="#" style="color:#fff;">say<strong>HI</strong></a>
+                        <a class="navbar-brand" href="../index.php" style="color:#fff;">say<strong>HI</strong></a>
 
                         <ul class="nav navbar-top-links navbar-right pull-right">
                             <li>
-                                <a href="../loginout.php">退出</a>
+                                <a href="../loginout.php"><i class="fa fa-sign-out"></i> 退出</a>
                             </li>
                         </ul>
                     </div>
@@ -68,29 +72,24 @@
                                     <?php foreach ($array_gb as $key => $value): ?>
                                     <div class="<?php echo ( ($key + 1) == $array_count)?"comment-body b-none" : "comment-body"; ?>" style="width:100%;">
                                         <div class="mail-contnet" style="padding-left:0;" data-cid="<?php echo $value['cid'] ?>">
-                                            <strong><?php echo $key+1 . $value['nickname'] ?></strong>
-                                            <time class="sl-date"><?php echo $value['create_time']; ?></time>
+                                            <strong><?php echo $value['nickname'] ?></strong>
+                                            <time class="sl-date"><?php echo date('H:i',$value['create_time']); ?></time>
 
-                                            <div class="mail-desc" style="height:auto;"><?php echo $value['content'] ?></div>
+                                            <p style="font-size:16px;"><?php echo $value['content'] ?></p>
 
                                             <div class="clearfix">
                                                 <div class="pull-left">
-                                                    <a href="#reply-<?php echo $value['cid'] ?>" class="btn btn-default btn-outline btn-sm js-reply" data-toggle="collapse"><i class="fa fa-mail-reply"></i> 回复</a>
+                                                    <a href="#reply-<?php echo $value['cid'] ?>" class="text-muted js-reply" data-toggle="collapse"><i class="fa fa-reply"></i> 回复</a>
                                                     &nbsp;
-                                                    <a href="javascript:void(0);" class="btn btn-default btn-outline btn-sm js-del"><i class="fa fa-close"></i> 删除</a>
+                                                    <a href="javascript:void(0);" class="text-muted js-del"><i class="fa fa-close"></i> 删除</a>
                                                 </div>
                                             </div>
 
-                                            <!-- 回复表单 S -->
-                                            <div class="panel-collapse collapse m-t-10" id="reply-<?php echo $value['cid'] ?>">
-                                                
-                                            </div>
-                                            <!-- 回复表单 End -->
+                                            <!-- 回复表单 -->
+                                            <div class="panel-collapse collapse m-t-10" id="reply-<?php echo $value['cid'] ?>"></div>
 
                                             <!-- 回复列表 S -->
-                                            <div class="mail-contnet">
-                                                
-                                            </div>
+                                            
                                             <!-- 回复列表 End -->
 
                                         </div>

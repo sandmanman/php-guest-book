@@ -3,7 +3,7 @@
     require_once 'main.php';
 
     
-    $sql_gb = 'SELECT nickname,content,create_time From '.GB_TABLE_NAME.' ORDER BY create_time';
+    $sql_gb = 'SELECT nickname,content,create_time From '.GB_TABLE_NAME.' ORDER BY create_time DESC';
     $array_gb = $dbhelper -> execute_dml($sql_gb);
 
     $dbhelper -> close_dbc();
@@ -49,12 +49,9 @@
                                             <input type="text" name="nickname" class="form-control" placeholder="昵称">
                                         </div>
                                         <div class="form-group">
-                                            <input type="email" name="email" class="form-control" placeholder="邮箱">
-                                        </div>
-                                        <div class="form-group">
                                             <textarea name="gb_content" id="" cols="30" rows="3" class="form-control" placeholder="说点什么吧..."></textarea>
                                         </div>
-                                        <button type="submit" class="btn btn-info"><i class="fa fa-paper-plane"></i> 提交</button>
+                                        <button type="submit" class="btn btn-info"><i class="fa fa-paper-plane"></i> 发表</button>
                                     </form>
                                 </div>
                                 <!-- 留言表单 End -->
@@ -69,9 +66,9 @@
                                     <?php foreach ($array_gb as $key => $value): ?>
                                     <div class="<?php echo ( ($key + 1) == $array_count)?"comment-body b-none" : "comment-body"; ?>" style="width:100%;">
                                         <div class="mail-contnet" style="padding-left:0;">
-                                             <strong><?php echo $value['nickname'] ?>：</strong>
-                                             <time class="sl-date pull-right"><?php echo $value['create_time']; ?></time>
-                                             <div class="mail-desc" style="height:auto;"><?php echo $value['content'] ?></div>
+                                             <strong><?php echo $value['nickname'] ?></strong>
+                                             <time class="sl-date"><?php echo date('H:i',$value['create_time']); ?></time>
+                                             <p style="font-size:16px;"><?php echo $value['content'] ?></p>
                                         </div>
                                     </div>
                                     <?php endforeach; ?>
