@@ -1,7 +1,4 @@
 @charset "UTF-8";
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,500,600,700,800);
-@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900);
-@import url(https://fonts.googleapis.com/css?family=Poppins:400,500,300,600,700);
 
 /*Theme Colors*/
 
@@ -28,33 +25,6 @@
     left: calc(50% - 3.5px);
 }
 
-/* This is for popins font for firefox */
-@font-face {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    src: url(https://fonts.gstatic.com/s/poppins/v1/2fCJtbhSlhNNa6S2xlh9GyEAvth_LlrfE80CYdSH47w.woff2) format('woff2');
-    unicode-range: U+02BC, U+0900-097F, U+1CD0-1CF6, U+1CF8-1CF9, U+200B-200D, U+20A8, U+20B9, U+25CC, U+A830-A839, U+A8E0-A8FB;
-}
-
-/* This is for popins font for firefox */
-@font-face {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    src: url(https://fonts.gstatic.com/s/poppins/v1/UGh2YG8gx86rRGiAZYIbVyEAvth_LlrfE80CYdSH47w.woff2) format('woff2');
-    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
-}
-
-/* This is for popins font for firefox */
-@font-face {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    src: url(https://fonts.gstatic.com/s/poppins/v1/yQWaOD4iNU5NTY0apN-qj_k_vArhqVIZ0nv9q090hN8.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-}
-
 * {
     outline: none !important;
 }
@@ -67,7 +37,6 @@ body {
     background: -webkit-linear-gradient(top, #73c7d2 0%, #73c8cf 0%, #7ec9ce 5%, #80cacb 7%, #83cacc 7%, #8acac9 11%, #8fcdca 12%, #8fccc7 13%, #97ccc6 16%, #9fcdc2 20%, #a1cdc0 20%, #a4cdbd 24%, #a7cdbe 24%, #a7ccbb 26%, #abcdbc 26%, #adccba 29%, #afcebc 29%, #b1cdb7 31%, #b3cfb9 31%, #b5ccb8 32%, #b7cfb9 34%, #bcceb4 37%, #c2d0b6 40%, #c4d1b3 43%, #cad0b4 44%, #c8d1b2 45%, #cbd2b1 45%, #ccd1b1 47%, #ced3b3 47%, #d2d2ae 51%, #d6d3b0 51%, #d4d1ae 52%, #ddd1ab 59%, #dcd0a8 59%, #ddcea5 62%, #e0cea6 63%, #e0cda5 65%, #decba3 65%, #e2cba2 67%, #e0c79e 70%, #e2c69f 71%, #e2c59d 72%, #e1c49a 73%, #e4c49b 73%, #e4c49b 74%, #e2c299 74%, #e3c098 77%, #e2bf95 77%, #e4be97 78%, #e3be92 78%, #e3bd96 78%, #e1ba91 81%, #e3b993 82%, #e1b58e 84%, #e3b790 84%, #e1b58e 85%, #e1b590 85%, #e1b48d 86%, #e0ae89 90%, #e0ae8b 91%, #dfad8a 92%, #deac87 92%, #e0ab89 94%, #dfab86 94%, #dfab86 94%, #dfaa8a 94%, #dfaa88 95%, #deaa85 95%, #dda785 100%) !important;  /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, #73c7d2 0%, #73c8cf 0%, #7ec9ce 5%, #80cacb 7%, #83cacc 7%, #8acac9 11%, #8fcdca 12%, #8fccc7 13%, #97ccc6 16%, #9fcdc2 20%, #a1cdc0 20%, #a4cdbd 24%, #a7cdbe 24%, #a7ccbb 26%, #abcdbc 26%, #adccba 29%, #afcebc 29%, #b1cdb7 31%, #b3cfb9 31%, #b5ccb8 32%, #b7cfb9 34%, #bcceb4 37%, #c2d0b6 40%, #c4d1b3 43%, #cad0b4 44%, #c8d1b2 45%, #cbd2b1 45%, #ccd1b1 47%, #ced3b3 47%, #d2d2ae 51%, #d6d3b0 51%, #d4d1ae 52%, #ddd1ab 59%, #dcd0a8 59%, #ddcea5 62%, #e0cea6 63%, #e0cda5 65%, #decba3 65%, #e2cba2 67%, #e0c79e 70%, #e2c69f 71%, #e2c59d 72%, #e1c49a 73%, #e4c49b 73%, #e4c49b 74%, #e2c299 74%, #e3c098 77%, #e2bf95 77%, #e4be97 78%, #e3be92 78%, #e3bd96 78%, #e1ba91 81%, #e3b993 82%, #e1b58e 84%, #e3b790 84%, #e1b58e 85%, #e1b590 85%, #e1b48d 86%, #e0ae89 90%, #e0ae8b 91%, #dfad8a 92%, #deac87 92%, #e0ab89 94%, #dfab86 94%, #dfab86 94%, #dfaa8a 94%, #dfaa88 95%, #deaa85 95%, #dda785 100%);  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#73c7d2', endColorstr='#dda785', GradientType=0) !important;  /* IE6-9 */
-    font-family: sans-serif;
     margin: 0;
     overflow-x: hidden;
     color: #686868;
@@ -87,7 +56,6 @@ h4,
 h5,
 h6 {
     color: #2b2b2b;
-    font-family: 'Poppins', sans-serif;
     margin: 10px 0;
     font-weight: 300;
 }
@@ -113,13 +81,7 @@ h4 {
 }
 
 h5 {
-    font-size: 18px;
     font-size: 16px;
-}
-
-h5 {
-    font-size: 16px;
-    font-size: 14px;
 }
 
 .dn {
@@ -1856,7 +1818,6 @@ table.dataTable thead .sorting:after {
 .panel .panel-body:first-child h3 {
     margin-top: 0px;
     font-weight: 600;
-    font-family: 'Poppins', sans-serif;
     font-size: 14px;
     text-transform: uppercase;
 }
@@ -5169,7 +5130,6 @@ ul#themecolors li:first-child {
 .two-part li span {
     font-size: 50px;
     font-weight: 100;
-    font-family: 'Poppins', sans-serif;
 }
 
 /*News Slides*/
@@ -16783,7 +16743,6 @@ ul.list-icons li i {
     display: flex;
     margin: 0 auto;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
     list-style: none;
     -ms-box-orient: horizontal;
     -ms-box-pack: center;
@@ -16822,7 +16781,7 @@ ul.list-icons li i {
     vertical-align: middle;
     font-wight: 500;
     font-size: 14px;
-    font-family: 'Poppins', sans-serif;
+    font-family: sans-serif;
 }
 
 .sttabs nav a:focus {
@@ -16857,7 +16816,6 @@ ul.list-icons li i {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 14px;
-    font-family: 'Poppins', sans-serif;
 }
 
 .tabs-style-bar nav ul li.tab-current a {
