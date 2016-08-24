@@ -9,10 +9,11 @@
   	$content = $_GET['content'];
   	$content = trim($content);
    	$content = htmlspecialchars($content);
+   	$create_time = time();
 
     if ( !empty($content && $content) && $cid!=='undefined' && $content!=='undefined' ) {
     	
-    	$sql = "UPDATE ".GB_TABLE_NAME." SET reply_content='$content' WHERE cid='$cid'";
+    	$sql = "INSERT INTO ".REPLY_TABLE_NAME."(cid,content,create_time) VALUES('$cid', '$content', '$create_time')";
 	    $result = $dbhelper -> execute_dql($sql);
 
 	    if ( $result ) {
