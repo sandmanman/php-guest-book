@@ -14,12 +14,19 @@
     $sql_gb = 'SELECT * From '.GB_TABLE_NAME.' ORDER BY create_time DESC';
     $array_gb = $dbhelper -> execute_dml($sql_gb);
 
-    $array_count = count($array_gb);
-
     // 回复
-    // $sql_reply = 'SELECT * From '.REPLY_TABLE_NAME.' WHERE status=1 ORDER BY reply_time DESC';
-    // $array_reply = $dbhelper -> execute_dml($sql_reply);
-    // $array_count_reply = count($array_reply);
+    $sql_reply = 'SELECT * From '.REPLY_TABLE_NAME.' ORDER BY reply_time DESC';
+    $array_reply = $dbhelper -> execute_dml($sql_reply);
+    
+    // 根据相同cid重新组合数组
+    $reply_temp = array();
+    foreach ($array_reply as $key => $value) {
+        if(!isset($reply_temp[$value['cid']])){
+            $reply_temp[$value['cid']][]=$value;
+        }else{
+            $reply_temp[$value['cid']][]=$value;
+        }
+    }
 
 ?>
 
@@ -70,8 +77,8 @@
 
                                     <!-- 循环输出 -->
                                     <?php foreach ($array_gb as $key => $value): ?>
-                                    <div class="<?php echo ( ($key + 1) == $array_count)?"comment-body b-none" : "comment-body"; ?>" style="width:100%;">
-                                        <div class="mail-contnet" style="padding-left:0;" data-cid="<?php echo $value['cid'] ?>">
+                                    <div class="comment-body" style="width:100%;display:block;">
+                                        <div class="mail-contnet" style="padding-left:0;width:100%;" data-cid="<?php echo $value['cid'] ?>">
                                             <strong><?php echo $value['nickname'] ?></strong>
                                             <time class="sl-date"><?php echo date('H:i',$value['create_time']); ?></time>
 
@@ -87,11 +94,26 @@
 
                                             <!-- 回复表单 -->
                                             <div class="panel-collapse collapse m-t-10" id="reply-<?php echo $value['cid'] ?>"></div>
+                                        </div>
 
+                                        <div class="reply-list" style="padding-left:60px;">
                                             <!-- 回复列表 S -->
-                                            
-                                            <!-- 回复列表 End -->
+                                            <?php if ($value['status'] == 1): ?>
+                                                <?php
+                                                    $cid = $value['cid'];
+                                                    $reply_cid = $reply_temp[$cid];
+                                                ?>
 
+                                                <?php foreach ($reply_cid as $key => $value): ?>
+                                                    <div class="comment-body" style="width:100%;padding-left:0;">
+                                                        <div class="mail-contnet" style="padding-left:0;">
+                                                            <time class="sl-date"><?php echo date('H:i',$value['reply_time']); ?></time>
+                                                            <div><?php echo $value['content'] ?></div>
+                                                        </div>
+                                                    </div>
+                                                <?php endforeach; ?>
+                                            <?php endif ?>
+                                            <!-- 回复列表 End -->
                                         </div>
                                     </div>
                                     <?php endforeach; ?>
