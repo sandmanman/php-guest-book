@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version: 5.5.38)
-# Date: 2016-08-24 17:46:08
+# Date: 2016-08-25 17:22:30
 # Generator: MySQL-Front 5.3  (Build 4.120)
 
 /*!40101 SET NAMES utf8 */;
@@ -14,9 +14,9 @@ CREATE TABLE `gb_guestbook` (
   `nickname` varchar(20) DEFAULT NULL COMMENT '用户昵称',
   `content` text NOT NULL COMMENT '留言内容',
   `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '留言时间',
-  `status` int(2) NOT NULL DEFAULT '0' COMMENT '是否有回复的状态',
+  `status` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`cid`)
-) ENGINE=MyISAM AUTO_INCREMENT=81 DEFAULT CHARSET=utf8 COMMENT='留言表';
+) ENGINE=MyISAM AUTO_INCREMENT=88 DEFAULT CHARSET=utf8 COMMENT='留言表';
 
 #
 # Structure for table "gb_reply"
