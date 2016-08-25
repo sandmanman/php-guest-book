@@ -3,7 +3,7 @@
     	留言回复
      */
     
-    require_once '../main.php';
+    require('../main.php');
 
     $cid = $_GET['cid'];
   	$content = $_GET['content'];

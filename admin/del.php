@@ -4,7 +4,7 @@
     	前端使用AJAX
      */
     
-    require_once '../main.php';
+    require('../main.php');
 
     $cid = $_GET['delComment'];
 

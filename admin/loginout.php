@@ -2,7 +2,7 @@
 
     // 退出
     
-    require_once '../main.php';
+    require('../main.php');
 
     session_destroy();
 

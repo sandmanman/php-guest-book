@@ -2,7 +2,7 @@
 
     // 展示留言，及提交留言的表单
 
-    require_once '../main.php';
+    require('../main.php');
 
     // 判断是否登录
     if (! (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) ) {
@@ -17,7 +17,7 @@
     $array_count = count($array_gb);
 
     // 回复
-    // $sql_reply = 'SELECT * From '.REPLY_TABLE_NAME.' ORDER BY reply_time DESC';
+    // $sql_reply = 'SELECT * From '.REPLY_TABLE_NAME.' WHERE status=1 ORDER BY reply_time DESC';
     // $array_reply = $dbhelper -> execute_dml($sql_reply);
     // $array_count_reply = count($array_reply);
 

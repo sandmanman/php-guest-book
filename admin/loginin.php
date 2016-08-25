@@ -1,7 +1,7 @@
 <?php
 
     // 管理员登录
-    require_once '../main.php';
+    require('../main.php');
 
     $username = $_POST['username'];
     $password = md5($_POST['password']);

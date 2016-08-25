@@ -1,6 +1,6 @@
 <?php
     
-    require_once '../main.php';
+    require('../main.php');
 
     // 判断是否登录
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true ) {

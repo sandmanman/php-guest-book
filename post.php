@@ -4,7 +4,7 @@
         发表留言
      */
 
-    require_once 'main.php';
+    require('main.php');
 
     $nickname = $_POST['nickname'];
     $email = $_POST['email'];
