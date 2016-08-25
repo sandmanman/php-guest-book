@@ -51,7 +51,9 @@
                                         <div class="form-group">
                                             <textarea name="gb_content" id="" cols="30" rows="3" class="form-control" placeholder="说点什么吧..."></textarea>
                                         </div>
-                                        <button type="submit" class="btn btn-info"><i class="fa fa-paper-plane"></i> 发表</button>
+                                        <div class="text-right">
+                                            <button type="submit" class="btn btn-info"><i class="fa fa-paper-plane"></i> 发表</button>
+                                        </div>
                                     </form>
                                 </div>
                                 <!-- 留言表单 End -->
