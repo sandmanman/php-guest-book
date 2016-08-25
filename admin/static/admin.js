@@ -108,6 +108,7 @@
 						            hideAfter: 3500, 
 						            stack: 6
 						        });
+                                window.location.reload(true);
 	        				}
 	        			})
 	        			.fail(function(data) {
