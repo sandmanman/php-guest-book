@@ -10,10 +10,14 @@
 
     if ( !empty($cid) && $cid!=='undefined' ) {
     	
-    	$sql = "DELETE FROM ".GB_TABLE_NAME." WHERE cid='{$cid}'";
-	    $result = $dbhelper -> execute_dql($sql);
+    	$sql_p = "DELETE FROM ".GB_TABLE_NAME." WHERE cid='{$cid}'";
+	    $result_p = $dbhelper -> execute_dql($sql_p);
 
-	    if ( $result ) {
+        $sql_c = "DELETE FROM ".REPLY_TABLE_NAME." WHERE cid='{$cid}'";
+        $result_c = $dbhelper -> execute_dql($sql_c);
+
+
+	    if ( $result_p && $result_c ) {
 	    	echo 1; // 删除操作成功
 	    } else {
 	    	echo 0; // 删除操作失败

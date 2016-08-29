@@ -92,9 +92,11 @@
                                                 </div>
                                             </div>
 
-                                            <!-- 回复表单 -->
-                                            <div class="panel-collapse collapse m-t-10" id="reply-<?php echo $value['cid'] ?>"></div>
+                                            
                                         </div>
+
+                                        <!-- 回复表单 -->
+                                        <div class="panel-collapse collapse m-t-10" id="reply-<?php echo $value['cid'] ?>"></div>
 
                                         <div class="reply-list" style="padding-left:60px;">
                                             <!-- 回复列表 S -->
@@ -106,7 +108,7 @@
 
                                                 <?php foreach ($reply_cid as $key => $value): ?>
                                                     <div class="comment-body" style="width:100%;padding-left:0;">
-                                                        <div class="mail-contnet" style="padding-left:0;">
+                                                        <div class="mail-contnet" style="padding-left:0;display:block;">
                                                             <time class="sl-date"><?php echo date('H:i',$value['reply_time']); ?></time>
                                                             <div><?php echo $value['content'] ?></div>
                                                         </div>
